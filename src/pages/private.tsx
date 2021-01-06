@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import parseCookies from '../utils/parseCookies'
 
 interface PrivateProps {
@@ -16,7 +16,7 @@ export function Private({ user }: PrivateProps) {
 
 export default Private;
 
-export const getServerSideProps: GetServerSideProps<PrivateProps> = async ({ req, res }) => {
+export const getServerSideProps: GetServerSideProps<PrivateProps> = async ({ req }) => {
   const cookies = parseCookies(req)
 
   if (!cookies) {

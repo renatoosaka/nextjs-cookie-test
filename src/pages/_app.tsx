@@ -1,9 +1,12 @@
 import { CookiesProvider } from 'react-cookie'
+import ApplicationProvider from '../hooks'
 
 function MyApp({ Component, pageProps }) {
-  return (
+  return (    
     <CookiesProvider>
-      <Component {...pageProps} />
+      <ApplicationProvider>
+        <Component {...pageProps} />
+      </ApplicationProvider>
     </CookiesProvider>
   );
 }
